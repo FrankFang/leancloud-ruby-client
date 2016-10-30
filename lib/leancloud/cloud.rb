@@ -25,8 +25,7 @@ module AV
     end
 
     def self.verify_sms_code(phone, code)
-      params = { mobilePhoneNumber: phone}
-      AV.client.post("/#{Protocol::VERSION}/verifySmsCode/#{code}", params.to_json)
+      AV.client.post("/#{Protocol::VERSION}/verifySmsCode/#{code}?mobilePhoneNumber=#{phone}", nil)
     end
   end
 end
